@@ -22,7 +22,7 @@ void	ft_striter(char *s, void (*f)(char *))
 	size_t	index;
 
 	index = 0;
-	if (s != NULL)
+	if (s != NULL && f != NULL)
 	{
 		while (s[index])
 			f(&s[index++]);
