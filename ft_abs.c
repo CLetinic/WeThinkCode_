@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cletinic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/23 13:49:34 by cletinic          #+#    #+#             */
-/*   Updated: 2018/05/24 10:10:38 by cletinic         ###   ########.fr       */
+/*   Created: 2018/07/12 14:08:36 by cletinic          #+#    #+#             */
+/*   Updated: 2018/07/12 14:14:39 by cletinic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-**  Checks for a decimal digit character,
-**  which is '0' - '9'.
+**	Returns the absolute value of an integer (i.e a number absent of a sign).
 */
 
 #include "libft.h"
 
-int		ft_isdigit(int c)
+int		ft_abs(int n)
 {
-	if ((c >= '0') && (c <= '9'))
-		return (1);
-	return (0);
+	if (n < 0)
+		return (-n);
+	return (n);
 }

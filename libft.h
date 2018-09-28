@@ -17,6 +17,22 @@
 # include <string.h>
 # include <stdlib.h>
 
+/*
+**	GET_NEXT_LINE
+*/
+
+# define BUFF_SIZE 32
+
+int					get_next_line(int const fd, char **line);
+
+/*
+**	LIBFT
+*/
+
+/*
+**	Bonus part - Lists
+*/
+
 typedef struct		s_list
 {
 	void			*content;
@@ -30,6 +46,10 @@ void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+
+/*
+**	Part 1 - Libc functions
+*/
 
 void				*ft_memset(void *s, int c, size_t n);
 void				ft_bzero(void *s, size_t n);
@@ -60,15 +80,27 @@ int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 
+/*
+**	Personal functions
+*/
+
 int					ft_isupper(int c);
 int					ft_islower(int c);
 int					ft_isspace(int c);
+int					ft_abs(int n);
+int					ft_atoi_base(const char *s, int base);
 char				*ft_strrev(char *s);
 char				*ft_strndup(const char *s, size_t n);
+char				*ft_strremovespaces(char *s);
+void				free_2d_char_array(char **s);
 size_t				ft_countwords(const char *s);
 size_t				ft_countwordschars(const char *s);
 size_t				ft_delimcountwords(const char *s, char c);
 size_t				ft_delimcountwordschars(const char *s, char c);
+
+/*
+**	Part 2 - Additional functions
+*/
 
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);

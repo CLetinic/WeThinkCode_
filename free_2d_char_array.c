@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   free_2d_char_array.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cletinic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/23 13:49:34 by cletinic          #+#    #+#             */
-/*   Updated: 2018/05/24 10:10:38 by cletinic         ###   ########.fr       */
+/*   Created: 2018/07/23 16:01:25 by cletinic          #+#    #+#             */
+/*   Updated: 2018/07/23 16:02:25 by cletinic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-**  Checks for a decimal digit character,
-**  which is '0' - '9'.
-*/
-
 #include "libft.h"
 
-int		ft_isdigit(int c)
+void	free_2d_char_array(char **s)
 {
-	if ((c >= '0') && (c <= '9'))
-		return (1);
-	return (0);
+	int index;
+
+	index = 0;
+	while (s[index])
+	{
+		free(s[index]);
+		index++;
+	}
+	free(s);
 }

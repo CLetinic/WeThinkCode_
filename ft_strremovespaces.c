@@ -1,42 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_strremovespaces.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cletinic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/30 13:44:48 by cletinic          #+#    #+#             */
-/*   Updated: 2018/05/31 15:44:27 by cletinic         ###   ########.fr       */
+/*   Created: 2018/07/12 14:50:59 by cletinic          #+#    #+#             */
+/*   Updated: 2018/07/12 14:51:08 by cletinic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-**	Converts the int data type in arguments  to string data type
+**	Allocates & returns “fresh” string without spaces from string argument
 */
 
 #include "libft.h"
 
-char	*ft_itoa(int n)
+char		*ft_strremovespaces(char *s)
 {
 	char	*str;
+	int		index;
+	int		strlength;
+	int		strindex;
 
-	str = ft_strnew(1);
+	index = 0;
+	strindex = 0;
+	if (s == NULL)
+		return (NULL);
+	strlength = ft_countwordschars(s);
+	str = ft_strnew(strlength);
 	if (str == NULL)
 		return (NULL);
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	else if (n < 0)
+	while (s[index] && (strindex < strlength))
 	{
-		str[0] = '-';
-		str[1] = '\0';
-		str = ft_strjoin(str, ft_itoa(-n));
-	}
-	else if (n >= 10)
-		str = ft_strjoin((ft_itoa(n / 10)), (ft_itoa(n % 10)));
-	else
-	{
-		str[0] = (n + '0');
-		str[1] = '\0';
+		while (ft_isspace(s[index]))
+			index++;
+		while ((!(ft_isspace(s[index]))) && (strindex < strlength))
+		{
+			str[strindex] = s[index];
+			index++;
+			strindex++;
+		}
 	}
 	return (str);
 }
